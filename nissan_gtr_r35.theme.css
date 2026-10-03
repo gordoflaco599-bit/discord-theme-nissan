@@ -1,0 +1,555 @@
+/* ============================================
+   Nissan GT-R R35 Discord Theme
+   Dark, aggressive, premium Japanese performance car aesthetic
+   Compatible with Vencord/BetterDiscord
+   ============================================ */
+
+/* ============================================
+   CSS VARIABLES & ROOT CUSTOMIZATION
+   ============================================ */
+:root {
+  /* Primary Colors */
+  --gtr-black: #0a0a0a;
+  --gtr-charcoal: #1a1a1a;
+  --gtr-dark-gray: #2a2a2a;
+  --gtr-medium-gray: #3a3a3a;
+  --gtr-light-gray: #4a4a4a;
+
+  /* Accent Colors */
+  --gtr-red: #c41e3a;
+  --gtr-red-dark: #8b1528;
+  --gtr-red-light: #e63946;
+
+  /* Background */
+  --gtr-bg-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80');
+  --gtr-overlay-opacity: 0.75;
+
+  /* Transparency Levels */
+  --gtr-sidebar-opacity: 0.92;
+  --gtr-chat-opacity: 0.88;
+  --gtr-panel-opacity: 0.90;
+
+  /* Transitions */
+  --gtr-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   GLOBAL DISCORD BACKGROUND & MAIN CONTAINER
+   ============================================ */
+
+/* Main app wrapper with GT-R background */
+.appMount_ebc1cc,
+.app_f5b2f1,
+body {
+  background: var(--gtr-black) var(--gtr-bg-image) center/cover fixed !important;
+  background-attachment: fixed !important;
+}
+
+/* Dark overlay to ensure text readability */
+.app_f5b2f1::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, var(--gtr-overlay-opacity)) 0%,
+    rgba(26, 26, 26, var(--gtr-overlay-opacity)) 50%,
+    rgba(10, 10, 10, var(--gtr-overlay-opacity)) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   SIDEBAR STYLING (Server List)
+   ============================================ */
+.guilds_c48b4d {
+  background-color: rgba(10, 10, 10, var(--gtr-sidebar-opacity)) !important;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(196, 30, 58, 0.2);
+}
+
+.wrapper_aa7d5d {
+  transition: var(--gtr-transition);
+}
+
+.wrapper_aa7d5d:hover {
+  filter: drop-shadow(0 0 8px rgba(196, 30, 58, 0.5));
+  transform: scale(1.05);
+}
+
+.selected_ae6501 {
+  box-shadow: inset -3px 0 0 var(--gtr-red) !important;
+}
+
+.selected_ae6501::after {
+  background: linear-gradient(90deg, var(--gtr-red), transparent) !important;
+  box-shadow: 0 0 12px rgba(196, 30, 58, 0.6) !important;
+}
+
+/* ============================================
+   CHANNEL SIDEBAR STYLING
+   ============================================ */
+.container_a90546,
+.sidebar_ded7df {
+  background-color: rgba(26, 26, 26, var(--gtr-sidebar-opacity)) !important;
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(196, 30, 58, 0.1);
+}
+
+.categoryHeader_ecf86e {
+  color: rgba(196, 30, 58, 0.8) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.channel_ba1efc,
+.channelName_bb4e4e {
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--gtr-transition);
+}
+
+.channel_ba1efc:hover,
+.channelName_bb4e4e:hover {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+}
+
+.channel_ba1efc[aria-selected="true"],
+.selected_ae6501 .channel_ba1efc {
+  background-color: rgba(196, 30, 58, 0.15) !important;
+  border-left: 3px solid var(--gtr-red);
+  color: var(--gtr-red) !important;
+  box-shadow: inset 0 0 12px rgba(196, 30, 58, 0.1);
+}
+
+/* ============================================
+   CHAT AREA STYLING
+   ============================================ */
+.chatContent_a7d72e,
+.chat_c1d5e3,
+[class*="chat"] {
+  background-color: rgba(26, 26, 26, var(--gtr-chat-opacity)) !important;
+  backdrop-filter: blur(5px);
+}
+
+.message_dd81ad {
+  background-color: rgba(42, 42, 42, 0.3);
+  border-left: 2px solid transparent;
+  transition: var(--gtr-transition);
+  margin: 2px 0;
+  padding: 4px 0;
+}
+
+.message_dd81ad:hover {
+  background-color: rgba(58, 58, 58, 0.4);
+  border-left-color: rgba(196, 30, 58, 0.5);
+  box-shadow: inset 3px 0 8px rgba(196, 30, 58, 0.1);
+}
+
+.username_b0dbbf,
+.timestamp_b0a3a8 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.markup_a7e664 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.markup_a7e664 a {
+  color: var(--gtr-red);
+  transition: var(--gtr-transition);
+}
+
+.markup_a7e664 a:hover {
+  color: var(--gtr-red-light);
+  text-decoration: underline;
+  text-shadow: 0 0 6px rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   MEMBER LIST STYLING
+   ============================================ */
+.members_a9def2,
+.memberListSection_b85e2f {
+  background-color: rgba(26, 26, 26, var(--gtr-panel-opacity)) !important;
+  backdrop-filter: blur(8px);
+  border-left: 1px solid rgba(196, 30, 58, 0.1);
+}
+
+.member_f4d6e5,
+.memberItem_c1f4ce {
+  transition: var(--gtr-transition);
+  border-left: 2px solid transparent;
+}
+
+.member_f4d6e5:hover,
+.memberItem_c1f4ce:hover {
+  background-color: rgba(196, 30, 58, 0.1);
+  border-left-color: var(--gtr-red);
+  box-shadow: inset 3px 0 8px rgba(196, 30, 58, 0.1);
+}
+
+.name_a4e2de {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.subtext_a50eae {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+/* ============================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ============================================ */
+.button_d6bbf1[type="button"],
+.lookFilled_c02b5b {
+  background-color: var(--gtr-red) !important;
+  color: white !important;
+  transition: var(--gtr-transition);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.button_d6bbf1[type="button"]:hover,
+.lookFilled_c02b5b:hover {
+  background-color: var(--gtr-red-light) !important;
+  box-shadow: 0 0 16px rgba(196, 30, 58, 0.6);
+  transform: translateY(-1px);
+}
+
+.button_d6bbf1[type="button"]:active,
+.lookFilled_c02b5b:active {
+  transform: translateY(0);
+  box-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+}
+
+.lookOutlined_c02b5b {
+  border: 1px solid var(--gtr-red);
+  color: var(--gtr-red) !important;
+  background-color: rgba(196, 30, 58, 0.1) !important;
+  transition: var(--gtr-transition);
+}
+
+.lookOutlined_c02b5b:hover {
+  background-color: rgba(196, 30, 58, 0.2) !important;
+  box-shadow: 0 0 12px rgba(196, 30, 58, 0.4);
+  border-color: var(--gtr-red-light);
+}
+
+.lookGhost_c02b5b {
+  color: var(--gtr-red) !important;
+  transition: var(--gtr-transition);
+}
+
+.lookGhost_c02b5b:hover {
+  background-color: rgba(196, 30, 58, 0.1);
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   INPUT FIELDS & TEXT AREAS
+   ============================================ */
+.input_dd3e84,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  background-color: rgba(42, 42, 42, 0.6) !important;
+  border: 1px solid rgba(196, 30, 58, 0.3) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: var(--gtr-transition);
+}
+
+.input_dd3e84:hover,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  border-color: rgba(196, 30, 58, 0.5) !important;
+  box-shadow: 0 0 8px rgba(196, 30, 58, 0.2);
+}
+
+.input_dd3e84:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--gtr-red) !important;
+  background-color: rgba(42, 42, 42, 0.8) !important;
+  box-shadow: 0 0 12px rgba(196, 30, 58, 0.4) !important;
+  outline: none !important;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ============================================
+   SETTINGS & MODALS
+   ============================================ */
+.modal_b1f1f2,
+.root_d8d1d3 {
+  background-color: rgba(26, 26, 26, var(--gtr-panel-opacity)) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(196, 30, 58, 0.2);
+}
+
+.layer_d8d1d3,
+.centered_aaf2fc {
+  background-color: rgba(26, 26, 26, var(--gtr-panel-opacity)) !important;
+}
+
+.header_c67849 {
+  background-color: rgba(10, 10, 10, 0.8);
+  border-bottom: 1px solid rgba(196, 30, 58, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.closeButton_a9c66b {
+  color: rgba(255, 255, 255, 0.6);
+  transition: var(--gtr-transition);
+}
+
+.closeButton_a9c66b:hover {
+  color: var(--gtr-red);
+  background-color: rgba(196, 30, 58, 0.1);
+}
+
+/* ============================================
+   HEADER & STATUS BAR
+   ============================================ */
+.header_c67849,
+.headerBar_a7e664 {
+  background-color: rgba(10, 10, 10, 0.85) !important;
+  border-bottom: 1px solid rgba(196, 30, 58, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.title_a7e664 {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   SCROLLBARS
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(26, 26, 26, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(196, 30, 58, 0.5);
+  border-radius: 4px;
+  transition: var(--gtr-transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(196, 30, 58, 0.8);
+  box-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   TOOLTIPS & POPUPS
+   ============================================ */
+.tooltip_b1f1f2,
+.layer_b1f1f2 {
+  background-color: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid rgba(196, 30, 58, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(196, 30, 58, 0.3);
+}
+
+.popout_d8d1d3 {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border: 1px solid rgba(196, 30, 58, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   ROLE COLORS & STATUS INDICATORS
+   ============================================ */
+.mask_fa3a52[style*="green"],
+.statusOnline_a7e664 {
+  color: #43b581 !important;
+  text-shadow: 0 0 8px rgba(67, 181, 129, 0.4);
+}
+
+.mask_fa3a52[style*="yellow"],
+.statusIdle_a7e664 {
+  color: #faa61a !important;
+}
+
+.mask_fa3a52[style*="red"],
+.statusDnd_a7e664 {
+  color: var(--gtr-red) !important;
+}
+
+/* ============================================
+   SPECIAL ELEMENTS & ACCENTS
+   ============================================ */
+.mention_a7e664 {
+  background-color: rgba(196, 30, 58, 0.2);
+  color: var(--gtr-red);
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-weight: 500;
+}
+
+.mention_a7e664:hover {
+  background-color: rgba(196, 30, 58, 0.3);
+  text-shadow: 0 0 6px rgba(196, 30, 58, 0.4);
+}
+
+.reaction_a7e664 {
+  background-color: rgba(196, 30, 58, 0.1) !important;
+  border: 1px solid rgba(196, 30, 58, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  transition: var(--gtr-transition);
+}
+
+.reaction_a7e664:hover {
+  background-color: rgba(196, 30, 58, 0.2);
+  box-shadow: 0 0 8px rgba(196, 30, 58, 0.3);
+}
+
+.emojiPicker_a7e664 {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border: 1px solid rgba(196, 30, 58, 0.2);
+}
+
+/* ============================================
+   VOICE CHANNELS & CALLS
+   ============================================ */
+.voiceChannel_a7e664 {
+  background-color: rgba(42, 42, 42, 0.3);
+  border-left: 2px solid transparent;
+  transition: var(--gtr-transition);
+}
+
+.voiceChannel_a7e664:hover {
+  background-color: rgba(58, 58, 58, 0.4);
+  border-left-color: var(--gtr-red);
+}
+
+.connected_a7e664 {
+  border-left-color: var(--gtr-red) !important;
+  box-shadow: inset 3px 0 8px rgba(196, 30, 58, 0.2);
+}
+
+/* ============================================
+   CONTEXT MENUS & RIGHT-CLICK
+   ============================================ */
+.menu_d8d1d3 {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border: 1px solid rgba(196, 30, 58, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+.item_a9c66b {
+  color: rgba(255, 255, 255, 0.8);
+  transition: var(--gtr-transition);
+}
+
+.item_a9c66b:hover {
+  background-color: rgba(196, 30, 58, 0.15);
+  color: var(--gtr-red);
+}
+
+.danger_a9c66b {
+  color: var(--gtr-red);
+}
+
+.danger_a9c66b:hover {
+  background-color: rgba(196, 30, 58, 0.2);
+  color: var(--gtr-red-light);
+}
+
+/* ============================================
+   MISCELLANEOUS & CLEANUP
+   ============================================ */
+.divider_a7e664,
+hr {
+  border-color: rgba(196, 30, 58, 0.1) !important;
+}
+
+.badge_a7e664 {
+  background-color: var(--gtr-red);
+  color: white;
+  font-weight: 600;
+}
+
+.tag_a7e664 {
+  background-color: rgba(196, 30, 58, 0.2);
+  color: var(--gtr-red);
+  border-radius: 12px;
+}
+
+.highlight_a7e664 {
+  background-color: rgba(196, 30, 58, 0.3);
+  color: var(--gtr-red-light);
+}
+
+code,
+pre {
+  background-color: rgba(10, 10, 10, 0.6) !important;
+  border: 1px solid rgba(196, 30, 58, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+blockquote {
+  border-left: 3px solid var(--gtr-red);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.spoiler_a7e664 {
+  background-color: rgba(196, 30, 58, 0.3);
+  border-radius: 3px;
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes redGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(196, 30, 58, 0.6);
+  }
+}
+
+.message_dd81ad {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ============================================
+   END OF NISSAN GT-R R35 DISCORD THEME
+   ============================================ */
