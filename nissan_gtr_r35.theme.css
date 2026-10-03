@@ -1,40 +1,42 @@
-/* ============================================
+/* =========================================================
    Nissan GT-R R35 Discord Theme
-   Dark, aggressive, premium Japanese performance car aesthetic
-   Compatible with Vencord/BetterDiscord
-   ============================================ */
+   Dark, aggressive, premium JDM street-performance look
+   Compatible with Vencord / BetterDiscord
+   ========================================================= */
 
-/* ============================================
-   CUSTOMIZATION
-   Replace the background URL below with a public URL
-   to the uploaded Nissan GT-R R35 image you attached.
-   ============================================ */
+/* -----------------------------
+   Theme variables
+   ----------------------------- */
 :root {
   --gtr-black: #070707;
-  --gtr-charcoal: #171717;
-  --gtr-dark-gray: #222222;
-  --gtr-medium-gray: #353535;
-  --gtr-light-gray: #4a4a4a;
+  --gtr-jet: #101010;
+  --gtr-charcoal: #181818;
+  --gtr-dark: #212121;
+  --gtr-mid: #2b2b2b;
+  --gtr-light: #3a3a3a;
 
-  --gtr-red: #c81f2d;
-  --gtr-red-dark: #7b101b;
-  --gtr-red-light: #ea394c;
+  --gtr-red: #c91d2d;
+  --gtr-red-dark: #7d0f1b;
+  --gtr-red-light: #ea4351;
 
-  --gtr-bg-image: url('https://your-domain.com/path/to/uploaded-nissan-gtr-r35.jpg');
-  --gtr-overlay-opacity: 0.74;
+  --gtr-text: rgba(255, 255, 255, 0.92);
+  --gtr-subtle: rgba(255, 255, 255, 0.7);
+  --gtr-muted: rgba(255, 255, 255, 0.45);
 
-  --gtr-sidebar-opacity: 0.9;
-  --gtr-chat-opacity: 0.86;
+  --gtr-bg-image: url('https://media.discordapp.net/attachments/1353550183174111232/1556072123355627620/2bc629d3e40cfd3c0a4c1bef8bfe49e3.png?backend=b2&ex=6ac2d498&is=6ac18318&hm=3b46846600039989e3136e901eb1574e69a1ceb1a7d536fc180a96703998fece&=&format=webp&quality=lossless&width=1024&height=931');
+  --gtr-overlay: rgba(10, 10, 10, 0.68);
+  --gtr-shell-opacity: 0.88;
   --gtr-panel-opacity: 0.9;
 
-  --gtr-transition: all 0.25s ease;
+  --gtr-transition: all 0.22s ease;
 }
 
-/* ============================================
-   GLOBAL BACKGROUND + DARK OVERLAY
-   ============================================ */
+/* -----------------------------
+   Global layout and background
+   ----------------------------- */
 html, body, #app, .appMount_fae9dd, .app_b1f720 {
-  background: var(--gtr-black) var(--gtr-bg-image) center/cover fixed no-repeat !important;
+  background: var(--gtr-black) var(--gtr-bg-image) center center / cover no-repeat fixed !important;
+  color: var(--gtr-text) !important;
 }
 
 body::before {
@@ -42,75 +44,80 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(180deg,
-      rgba(0, 0, 0, 0.66) 0%,
-      rgba(0, 0, 0, 0.58) 32%,
-      rgba(14, 14, 14, var(--gtr-overlay-opacity)) 100%),
-    radial-gradient(circle at top center, rgba(200, 31, 45, 0.19), transparent 40%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.68)),
+    radial-gradient(circle at 50% 16%, rgba(200, 29, 45, 0.18), transparent 34%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Ensure content sits above overlay */
-.app_b1f720, .layer_f7d46a, .chat_f75fb0, .sidebarList_c48b4d {
+.app_b1f720, .layer_f7d46a, .chat_f75fb0, .sidebar_ded7df,
+.members_f75fb0, .guilds_c48b4d, .container_a90546 {
   position: relative;
   z-index: 1;
 }
 
-/* Default Discord font */
+/* -----------------------------
+   Discord UI base styling
+   ----------------------------- */
 body, button, input, textarea, select, .text-sm-medium, .title, .header {
   font-family: "Segoe UI", Inter, system-ui, sans-serif !important;
+  letter-spacing: 0.01em;
 }
 
-/* ============================================
-   SERVER SIDEBAR
-   ============================================ */
+::selection {
+  background: rgba(200, 29, 45, 0.35);
+  color: white;
+}
+
+/* -----------------------------
+   Guild/server sidebar
+   ----------------------------- */
 .guilds_c48b4d {
-  background: rgba(10, 10, 10, var(--gtr-sidebar-opacity)) !important;
-  border-right: 1px solid rgba(200, 31, 45, 0.18);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(10, 10, 10, var(--gtr-shell-opacity)) !important;
+  border-right: 1px solid rgba(200, 29, 45, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .guilds_c48b4d .scroller_ef5f60 {
   background: transparent !important;
 }
 
-.guilds_c48b4d .item_f9d1cb,
-.guilds_c48b4d .wrapper_aa7d5d {
+.guilds_c48b4d .wrapper_aa7d5d,
+.guilds_c48b4d .item_f9d1cb {
   transition: var(--gtr-transition);
 }
 
-.guilds_c48b4d .item_f9d1cb:hover,
-.guilds_c48b4d .wrapper_aa7d5d:hover {
+.guilds_c48b4d .wrapper_aa7d5d:hover,
+.guilds_c48b4d .item_f9d1cb:hover {
   transform: translateY(-1px);
-  filter: drop-shadow(0 0 8px rgba(200, 31, 45, 0.42));
+  filter: drop-shadow(0 0 10px rgba(200, 29, 45, 0.36));
 }
 
 .guilds_c48b4d .selected_ae6501 {
-  box-shadow: inset 0 0 0 1px rgba(200, 31, 45, 0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(200, 29, 45, 0.45) !important;
 }
 
 .guilds_c48b4d .selected_ae6501::before {
-  background: linear-gradient(180deg, rgba(200, 31, 45, 0.95), rgba(200, 31, 45, 0.48)) !important;
-  box-shadow: 0 0 12px rgba(200, 31, 45, 0.36);
+  background: linear-gradient(180deg, rgba(200, 29, 45, 0.95), rgba(200, 29, 45, 0.42)) !important;
+  box-shadow: 0 0 14px rgba(200, 29, 45, 0.32);
 }
 
-/* ============================================
-   CHANNEL SIDEBAR
-   ============================================ */
+/* -----------------------------
+   Channel sidebar
+   ----------------------------- */
 .sidebar_ded7df,
 .container_a90546 {
-  background: rgba(22, 22, 22, var(--gtr-sidebar-opacity)) !important;
-  border-right: 1px solid rgba(200, 31, 45, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(20, 20, 20, var(--gtr-shell-opacity)) !important;
+  border-right: 1px solid rgba(200, 29, 45, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .sidebar_ded7df .header_c67849,
 .container_a90546 .header_c67849 {
-  background: rgba(10, 10, 10, 0.68) !important;
-  border-bottom: 1px solid rgba(200, 31, 45, 0.12);
+  background: rgba(10, 10, 10, 0.7) !important;
+  border-bottom: 1px solid rgba(200, 29, 45, 0.12);
 }
 
 .channel_ba1efc,
@@ -121,33 +128,33 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
 
 .channel_ba1efc:hover,
 .channelName_bb4e4e:hover {
+  background: rgba(200, 29, 45, 0.06);
   color: rgba(255, 255, 255, 1) !important;
-  background: rgba(200, 31, 45, 0.06);
 }
 
 .channel_ba1efc[aria-selected="true"],
 .channel_ba1efc.selected_bf2b06,
 .selected_ae6501 .channel_ba1efc {
-  background: rgba(200, 31, 45, 0.15) !important;
+  background: rgba(200, 29, 45, 0.14) !important;
   border-left: 3px solid var(--gtr-red) !important;
   color: var(--gtr-red) !important;
-  box-shadow: inset 0 0 12px rgba(200, 31, 45, 0.08);
+  box-shadow: inset 0 0 12px rgba(200, 29, 45, 0.09);
 }
 
 .categoryHeader_ecf86e {
   color: rgba(255, 255, 255, 0.52) !important;
-  text-transform: uppercase;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
   font-size: 11px;
 }
 
-/* ============================================
-   CHAT AREA
-   ============================================ */
+/* -----------------------------
+   Main chat area
+   ----------------------------- */
 .chat_f75fb0 {
-  background: rgba(18, 18, 18, var(--gtr-chat-opacity)) !important;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(18, 18, 18, var(--gtr-panel-opacity)) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .chat_f75fb0 .content_f75fb0,
@@ -157,19 +164,20 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
 }
 
 .message_ef5f60 {
-  background: rgba(34, 34, 34, 0.2) !important;
+  background: rgba(34, 34, 34, 0.24) !important;
   border-left: 2px solid transparent;
+  margin-top: 2px;
   transition: var(--gtr-transition);
 }
 
 .message_ef5f60:hover {
-  background: rgba(52, 52, 52, 0.32) !important;
-  border-left-color: rgba(200, 31, 45, 0.7);
-  box-shadow: inset 4px 0 12px rgba(200, 31, 45, 0.08);
+  background: rgba(52, 52, 52, 0.33) !important;
+  border-left-color: rgba(200, 29, 45, 0.72);
+  box-shadow: inset 4px 0 12px rgba(200, 29, 45, 0.08);
 }
 
 .message_ef5f60 .username_ef5f60 {
-  color: rgba(255, 255, 255, 0.92) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
   font-weight: 700;
 }
 
@@ -186,34 +194,34 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
 }
 
 .message_ef5f60 .markup_ef5f60 a:hover {
-  filter: brightness(1.18);
-  text-shadow: 0 0 10px rgba(200, 31, 45, 0.36);
+  text-shadow: 0 0 10px rgba(200, 29, 45, 0.34);
+  filter: brightness(1.15);
 }
 
-/* ============================================
-   MEMBER LIST
-   ============================================ */
+/* -----------------------------
+   Member list
+   ----------------------------- */
 .members_f75fb0 {
   background: rgba(18, 18, 18, var(--gtr-panel-opacity)) !important;
-  border-left: 1px solid rgba(200, 31, 45, 0.08);
+  border-left: 1px solid rgba(200, 29, 45, 0.08);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 .member_aa7d5d:hover {
-  background: rgba(200, 31, 45, 0.08);
+  background: rgba(200, 29, 45, 0.08);
   border-left: 2px solid var(--gtr-red);
 }
 
-/* ============================================
-   TOP BAR / HEADER
-   ============================================ */
+/* -----------------------------
+   Top bar and headers
+   ----------------------------- */
 .title_f75fb0,
 .topPill_f75fb0,
 .header_c67849,
 .container_d5d9d0 {
   background: rgba(12, 12, 12, 0.72) !important;
-  border-bottom: 1px solid rgba(200, 31, 45, 0.12);
+  border-bottom: 1px solid rgba(200, 29, 45, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -223,44 +231,59 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
   font-weight: 700;
 }
 
-/* ============================================
-   INPUTS, BUTTONS, POPUPS
-   ============================================ */
-.lookFilled_aa7d5d, .button_ef5f60, .button_f75fb0, .lookFilled_ef5f60 {
-  background: linear-gradient(180deg, #d62b3d, var(--gtr-red)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* -----------------------------
+   Buttons, inputs, and interactive controls
+   ----------------------------- */
+.lookFilled_aa7d5d,
+.lookFilled_ef5f60,
+.button_ef5f60,
+.button_f75fb0 {
+  background: linear-gradient(180deg, #d72b3d, var(--gtr-red)) !important;
   color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: var(--gtr-transition);
 }
 
-.lookFilled_aa7d5d:hover, .button_ef5f60:hover, .button_f75fb0:hover, .lookFilled_ef5f60:hover {
-  background: linear-gradient(180deg, #e53b4d, var(--gtr-red-light)) !important;
-  box-shadow: 0 0 12px rgba(200, 31, 45, 0.38);
+.lookFilled_aa7d5d:hover,
+.lookFilled_ef5f60:hover,
+.button_ef5f60:hover,
+.button_f75fb0:hover {
+  background: linear-gradient(180deg, #e53d4f, var(--gtr-red-light)) !important;
+  box-shadow: 0 0 12px rgba(200, 29, 45, 0.38);
   transform: translateY(-1px);
 }
 
 .lookOutlined_aa7d5d {
   color: var(--gtr-red-light) !important;
-  border-color: rgba(200, 31, 45, 0.6) !important;
-  background: rgba(200, 31, 45, 0.08) !important;
+  border-color: rgba(200, 29, 45, 0.62) !important;
+  background: rgba(200, 29, 45, 0.08) !important;
 }
 
 .lookOutlined_aa7d5d:hover {
-  border-color: rgba(200, 31, 45, 1) !important;
-  background: rgba(200, 31, 45, 0.12) !important;
-  box-shadow: 0 0 10px rgba(200, 31, 45, 0.22);
+  background: rgba(200, 29, 45, 0.12) !important;
+  border-color: rgba(200, 29, 45, 1) !important;
+  box-shadow: 0 0 10px rgba(200, 29, 45, 0.22);
 }
 
-.input_f75fb0, .input_ef5f60, textarea, input[type="text"], input[type="search"], input[type="password"], .searchBar_e9e3c1 {
-  background: rgba(26, 26, 26, 0.7) !important;
+.input_f75fb0,
+.input_ef5f60,
+textarea,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+.searchBar_e9e3c1 {
+  background: rgba(24, 24, 24, 0.72) !important;
   color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(200, 31, 45, 0.24) !important;
+  border: 1px solid rgba(200, 29, 45, 0.26) !important;
   transition: var(--gtr-transition);
 }
 
-.input_f75fb0:focus, .input_ef5f60:focus, textarea:focus, input:focus {
-  border-color: rgba(200, 31, 45, 0.9) !important;
-  box-shadow: 0 0 12px rgba(200, 31, 45, 0.2);
+.input_f75fb0:focus,
+.input_ef5f60:focus,
+textarea:focus,
+input:focus {
+  border-color: rgba(200, 29, 45, 0.9) !important;
+  box-shadow: 0 0 12px rgba(200, 29, 45, 0.22);
   outline: none !important;
 }
 
@@ -268,29 +291,29 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
   color: rgba(255, 255, 255, 0.38) !important;
 }
 
-/* ============================================
-   MODALS / POPUPS / TOOLTIPS
-   ============================================ */
-.modal_aa7d5d, .root_ef5f60, .layer_ef5f60, .menu_ef5f60, .tooltip_ef5f60 {
+/* -----------------------------
+   Modals, popouts, tooltips
+   ----------------------------- */
+.modal_aa7d5d,
+.root_ef5f60,
+.layer_ef5f60,
+.menu_ef5f60,
+.tooltip_ef5f60 {
   background: rgba(18, 18, 18, 0.94) !important;
-  border: 1px solid rgba(200, 31, 45, 0.18);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 12px rgba(200, 31, 45, 0.12);
+  border: 1px solid rgba(200, 29, 45, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 12px rgba(200, 29, 45, 0.12);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 .item_ef5f60:hover {
-  background: rgba(200, 31, 45, 0.12) !important;
+  background: rgba(200, 29, 45, 0.12) !important;
   color: var(--gtr-red-light) !important;
 }
 
-.item_ef5f60.danger {
-  color: #ff6b7a !important;
-}
-
-/* ============================================
-   SCROLLBARS
-   ============================================ */
+/* -----------------------------
+   Scrollbars
+   ----------------------------- */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -301,54 +324,50 @@ body, button, input, textarea, select, .text-sm-medium, .title, .header {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(200, 31, 45, 0.52);
+  background: rgba(200, 29, 45, 0.52);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 31, 45, 0.8);
-  box-shadow: 0 0 10px rgba(200, 31, 45, 0.3);
+  background: rgba(200, 29, 45, 0.82);
+  box-shadow: 0 0 10px rgba(200, 29, 45, 0.3);
 }
 
-/* ============================================
-   SPECIAL ELEMENTS
-   ============================================ */
+/* -----------------------------
+   Mentions, reactions, code
+   ----------------------------- */
 .mention_ef5f60 {
-  background: rgba(200, 31, 45, 0.18) !important;
+  background: rgba(200, 29, 45, 0.18) !important;
   color: var(--gtr-red-light) !important;
-  padding: 2px 5px;
   border-radius: 4px;
+  padding: 2px 5px;
 }
 
 .reaction_ef5f60 {
-  background: rgba(200, 31, 45, 0.09) !important;
-  border: 1px solid rgba(200, 31, 45, 0.22);
+  background: rgba(200, 29, 45, 0.09) !important;
+  border: 1px solid rgba(200, 29, 45, 0.22);
 }
 
 .reaction_ef5f60:hover {
-  background: rgba(200, 31, 45, 0.16) !important;
-  box-shadow: 0 0 8px rgba(200, 31, 45, 0.2);
+  background: rgba(200, 29, 45, 0.16) !important;
+  box-shadow: 0 0 8px rgba(200, 29, 45, 0.22);
 }
 
 .code_ef5f60, pre {
-  background: rgba(11, 11, 11, 0.7) !important;
-  border: 1px solid rgba(200, 31, 45, 0.12);
+  background: rgba(11, 11, 11, 0.72) !important;
+  border: 1px solid rgba(200, 29, 45, 0.12);
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* ============================================
-   SUBTLE ACCENT & GLOW
-   ============================================ */
-::selection {
-  background: rgba(200, 31, 45, 0.34);
-}
-
+/* -----------------------------
+   Active/focus glow accents
+   ----------------------------- */
 [aria-selected="true"],
 [aria-checked="true"],
 .active_ef5f60 {
-  box-shadow: 0 0 12px rgba(200, 31, 45, 0.15) !important;
+  box-shadow: 0 0 12px rgba(200, 29, 45, 0.15) !important;
 }
 
-/* ============================================
-   END OF THEME
-   ============================================ */
+/* =========================================================
+   End of Nissan GT-R R35 Discord Theme
+   ========================================================= */
